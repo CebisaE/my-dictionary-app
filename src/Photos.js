@@ -5,18 +5,21 @@ export default function Photos(props) {
   if (props.photos) {
     return (
       <section className="Photos">
-        <div className="row">
-          {props.photos.map(function (photo, index) {
+        <div className="photos-grid">
+          {props.photos.map((photo, index) => {
             return (
-              <div className="col-4" key={index}>
-                <a href={photo.src.original} target="_blank" rel="noreferrer">
-                  <img
-                    src={photo.src.landscape}
-                    className="img-fluid"
-                    alt={photo.src.photographer}
-                  />
-                </a>
-              </div>
+              <a
+                href={photo.src.original}
+                target="_blank"
+                rel="noreferrer"
+                key={index}
+              >
+                <img
+                  src={photo.src.landscape}
+                  className="photo-img"
+                  alt={photo.src.photographer}
+                />
+              </a>
             );
           })}
         </div>
@@ -26,3 +29,5 @@ export default function Photos(props) {
     return null;
   }
 }
+
+
